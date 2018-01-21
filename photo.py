@@ -2,6 +2,10 @@ from colordetect import clothes_color
 from cnnclothes import predict
 from PIL import Image
 import pyrebase
+from PIL import Image
+import requests
+from io import BytesIO
+
 
 #init firebase
 
@@ -21,15 +25,16 @@ def outputs(userId, itemId):
 
 	firebase = pyrebase.initialize_app(config)
 
+	file_name = "test.jpeg"
 	storage = firebase.storage()
 	db = firebase.database()
-	storage.child(userId + "/" + itemId + ".jpeg").download("test.jpeg")
-	img = Image.open('test.jpeg')
+	url = storage.child(userId + "/" + itemId + ".jpeg").get_url()
+	response = requests.get(url)
+	img = Image.open(BytesIO(response.content))
 
 	#retrieve type
 	cat = items[predict(img)]
 
-	img1 = Image.open('test.jpeg')
 	#retrieve color
 	color = clothes_color("C:\Users\MLH Admin\Documents\CruzHacks\Showstopper-Server/test.jpeg")
 
