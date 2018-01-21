@@ -26,6 +26,9 @@ def get_map(id):
         a = (coords[person][0], coords[person][1])
         b = (mycoords[0], mycoords[1])
         x = vincenty(a, b).meters
+        print(a)
+        print(b)
+        print(x)
         if x < 30:
             map_coords[person] = a
         else:
