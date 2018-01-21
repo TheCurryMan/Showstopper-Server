@@ -6,15 +6,17 @@ firebase = firebase.FirebaseApplication('https://showstoppercruz.firebaseio.com/
 
 def get_map(id):
     print('Calculating...')
-    result = firebase.get('/mUsers', None)
-    mylat = '/mUsers/' + id + '/lat'
-    mylng = '/mUsers/' + id + '/long'
+    result = firebase.get('/users', None)
+    # print(result)
+    mylat = '/users/' + id + '/lat'
+    mylng = '/users/' + id + '/long'
     mycoords = [firebase.get(mylat, None), firebase.get(mylng, None)]
     coords = dict()
-    for user in result:
+    for user in result.keys():
         if user != id:
-            lat = '/mUsers/' + user + '/lat'
-            lng = '/mUsers/' + user + '/long'
+            # print(user)
+            lat = '/users/' + user + '/lat'
+            lng = '/users/' + user + '/long'
             coords[user] = [firebase.get(lat, None), firebase.get(lng, None)]
     # result = firebase.get('/mUsers', None)
     map_coords = dict()
@@ -31,7 +33,7 @@ def nearby_outfits(id):
     today = str(date.today())
     clothing = {'top': [], 'bot': [], 'sho': []}
     for user in peeps.keys():
-        link = '/mUsers/' + user + '/outfits/' + today + '/'
+        link = '/users/' + user + '/outfits/' + today + '/'
         today_outfit = firebase.get(link, None)
         clothing['top'].append(today_outfit['topID'])
         clothing['bot'].append(today_outfit['botID'])
@@ -69,6 +71,6 @@ def nearby_outfits(id):
     fin['sho_list'] = res_sho
     return fin
 
-# print(get_map('02'))
+print(get_map('MY4jikyYyQdzEROf49AC6iWeFOA3'))
 
 
