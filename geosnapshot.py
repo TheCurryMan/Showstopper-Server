@@ -26,6 +26,8 @@ def get_map(id):
         x = vincenty(a, b).meters
         if x < 10:
             map_coords[person] = a
+        else:
+            print("Not close enough")
     return map_coords
 
 def nearby_outfits(id):
