@@ -25,10 +25,9 @@ def outputs(userId, itemId):
 
 	firebase = pyrebase.initialize_app(config)
 
-	file_name = "test.jpeg"
 	storage = firebase.storage()
 	db = firebase.database()
-	url = storage.child(userId + "/" + itemId + ".jpeg").get_url()
+	url = storage.child(userId + "/" + itemId + ".jpeg").get_url(1)
 	response = requests.get(url)
 	img = Image.open(BytesIO(response.content))
 
@@ -39,7 +38,7 @@ def outputs(userId, itemId):
 	color = clothes_color(url)
 
 	#retrieve class
-	tag = classes[predict(img1)]
+	tag = classes[predict(img)]
 	print(cat)
 	print(color)
 	print(tag)
@@ -62,3 +61,5 @@ def outputs(userId, itemId):
 	item = {'cat': cat, 'color': color, 'tag': tag, 'description': description}
 
 	db.child("items").child(itemId).set(item)
+
+# outputs("46Hv3U0JRiZPVfaDPxHlyF4PX5g1", "151649519836672")

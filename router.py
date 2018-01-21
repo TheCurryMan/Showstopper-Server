@@ -33,7 +33,9 @@ def outfits():
 @app.route('/store', methods = ['GET'])
 def store():
     user_id = request.args.get('user_id')
+    print(user_id)
     pic_id = request.args.get('pic_id')
+    print(pic_id)
     photo.outputs(user_id, pic_id)
     return "CONGRATS! ITS STORED U AIDS"
 
