@@ -73,7 +73,7 @@ def createModel():
 
 
 def predict(img):
-    test_model = load_model('1000samp.h5')
+    test_model = load_model('10000samp.h5')
     test_model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
     img = img.convert('L')
     img = resizeimage.resize_cover(img, [28,28])
