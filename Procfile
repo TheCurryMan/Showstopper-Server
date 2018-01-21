@@ -1,1 +1,1 @@
-web: gunicorn SpeechAI:app
+web: gunicorn router:app
