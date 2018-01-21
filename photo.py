@@ -31,7 +31,7 @@ def outputs(userId, itemId):
 
 	img1 = Image.open('test.jpeg')
 	#retrieve color
-	color = clothes_color("/Users/ashwinnathan/test.jpeg")
+	color = clothes_color("C:\Users\MLH Admin\Documents\CruzHacks\Showstopper-Server/test.jpeg")
 
 	#retrieve class
 	tag = classes[predict(img1)]
