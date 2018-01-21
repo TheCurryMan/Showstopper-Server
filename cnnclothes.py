@@ -15,28 +15,28 @@ from keras.models import load_model
 import PIL.ImageOps    
 
 #Clothing dataset
-from keras.datasets import fashion_mnist
-(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
-train_images = train_images[:30000]
-train_labels = train_labels[:30000]
-test_images = train_images[:30000]
-test_labels = train_labels[:30000]
-
-
-#Change to float and resize
-num_classes = len(np.unique(train_labels))
-train_images = train_images.astype('float32')
-test_images = test_images.astype('float32')
-# cv2.imwrite('prefx_training.png', train_images[0,:,:])
-train_images /= 255
-# cv2.imwrite('postfx_training.png', train_images[0,:,:])
-test_images /= 255
-rows, cols = train_images.shape[1:]
-train_data = train_images.reshape(train_images.shape[0], 1, rows, cols)
-test_data = test_images.reshape(test_images.shape[0], 1, rows, cols)
-input_shape = (1, rows, cols)
-train_labels_one_hot = np_utils.to_categorical(train_labels, 10)
-test_labels_one_hot = np_utils.to_categorical(test_labels, 10)
+# from keras.datasets import fashion_mnist
+# (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+# train_images = train_images[:30000]
+# train_labels = train_labels[:30000]
+# test_images = train_images[:30000]
+# test_labels = train_labels[:30000]
+#
+#
+# #Change to float and resize
+# num_classes = len(np.unique(train_labels))
+# train_images = train_images.astype('float32')
+# test_images = test_images.astype('float32')
+# # cv2.imwrite('prefx_training.png', train_images[0,:,:])
+# train_images /= 255
+# # cv2.imwrite('postfx_training.png', train_images[0,:,:])
+# test_images /= 255
+# rows, cols = train_images.shape[1:]
+# train_data = train_images.reshape(train_images.shape[0], 1, rows, cols)
+# test_data = test_images.reshape(test_images.shape[0], 1, rows, cols)
+# input_shape = (1, rows, cols)
+# train_labels_one_hot = np_utils.to_categorical(train_labels, 10)
+# test_labels_one_hot = np_utils.to_categorical(test_labels, 10)
 
 def createModel():
     model = Sequential()
