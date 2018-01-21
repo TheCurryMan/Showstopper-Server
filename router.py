@@ -17,11 +17,9 @@ def hello():
 
 @app.route('/findhottest')
 def hottest():
-    return findhottest.find_pic(findhottest.get())
+    return json.dumps(findhottest.find_pic(findhottest.get()))
 
-
-if __name__ == '__main__':
-    app.run()
-
-
-
+@app.route('/geo', methods = ['GET'])
+def geo():
+    id = request.args.get('id')
+    return json.dumps(geosnapshot.get(id))
