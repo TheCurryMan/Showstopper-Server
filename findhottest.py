@@ -70,4 +70,4 @@ def get_most_common(color_list):
     return x
 
 
-print(get())
+# print(get())

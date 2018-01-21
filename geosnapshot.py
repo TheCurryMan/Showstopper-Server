@@ -69,6 +69,6 @@ def nearby_outfits(id):
     fin['sho_list'] = res_sho
     return fin
 
-print(nearby_outfits('02'))
+# print(nearby_outfits('02'))
 
 
