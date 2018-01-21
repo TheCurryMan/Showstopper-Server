@@ -34,6 +34,7 @@ pycryptodome==3.4.3
 Pyrebase==3.0.27
 python-firebase==1.2
 python-jwt==2.0.1
+python-resize-image==1.1.11
 pytz==2017.3
 PyYAML==3.12
 requests==2.18.4
