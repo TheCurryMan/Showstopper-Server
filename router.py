@@ -4,6 +4,8 @@ from firebase import firebase
 import json
 import findhottest
 import geosnapshot
+import cnnclothes
+
 
 DEBUG = True
 app = Flask(__name__)
@@ -27,3 +29,12 @@ def geo():
 def outfits():
     ids = request.args.get('id')
     return json.dumps(geosnapshot.nearby_outfits(ids))
+
+@app.route('/store', methods = ['GET'])
+def store():
+    user_id = request.args.get('user_id')
+    pic_id = request.args.get('pic_id')
+
+    return "CONGRATS ITS STORED U AIDS"
+
+
