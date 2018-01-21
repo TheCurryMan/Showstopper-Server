@@ -24,7 +24,6 @@ def outputs(userId, itemId):
 	}
 
 	firebase = pyrebase.initialize_app(config)
-
 	storage = firebase.storage()
 	db = firebase.database()
 	url = storage.child(userId + "/" + itemId + ".jpeg").get_url(1)
@@ -62,4 +61,4 @@ def outputs(userId, itemId):
 
 	db.child("items").child(itemId).set(item)
 
-# outputs("46Hv3U0JRiZPVfaDPxHlyF4PX5g1", "151649519836672")
+outputs("46Hv3U0JRiZPVfaDPxHlyF4PX5g1", "151649519836672")
