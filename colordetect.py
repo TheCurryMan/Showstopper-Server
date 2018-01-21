@@ -3,7 +3,7 @@ import os
 import webcolors as wb
 from google.cloud import vision
 from google.cloud.vision import types
-from google.cloud import storage
+
 
 
 common_colors = {"#FFFFFF":"white",
@@ -20,6 +20,7 @@ common_colors = {"#FFFFFF":"white",
 				 } 
 
 def explicit():
+    from google.cloud import storage
     # Explicitly use service account credentials by specifying the private key
     # file.
     storage_client = storage.Client.from_service_account_json('creds.json')
