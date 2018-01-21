@@ -21,5 +21,10 @@ def hottest():
 
 @app.route('/geo', methods = ['GET'])
 def geo():
-    id = request.args.get('id')
-    return json.dumps(geosnapshot.get(id))
+    user = request.args.get('id')
+    return json.dumps(geosnapshot.get_map(user))
+
+@app.route('/outfits', methods = ['GET'])
+def geo():
+    ids = request.args.get('id')
+    return json.dumps(geosnapshot.nearby_outfits(ids))
