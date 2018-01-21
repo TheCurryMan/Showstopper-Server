@@ -4,7 +4,7 @@ from firebase import firebase
 import json
 import findhottest
 import geosnapshot
-import cnnclothes
+import photo
 
 
 DEBUG = True
@@ -34,7 +34,7 @@ def outfits():
 def store():
     user_id = request.args.get('user_id')
     pic_id = request.args.get('pic_id')
-
-    return "CONGRATS ITS STORED U AIDS"
+    photo.outputs(user_id, pic_id)
+    return "CONGRATS! ITS STORED U AIDS"
 
 
