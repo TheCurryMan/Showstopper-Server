@@ -71,7 +71,6 @@ def createModel():
 #                     validation_data=(test_data, test_labels_one_hot))
 # model1.save('30000samp.h5')
 
-
 def predict(img):
     test_model = load_model('10000samp.h5')
     test_model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
