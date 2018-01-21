@@ -1,15 +1,15 @@
 import numpy as np
-import pyrebase
-from PIL import Image
-import cv2
-import requests
-from io import BytesIO
-import matplotlib.pyplot as plt
-import keras
+# import pyrebase
+# from PIL import Image
+# # import cv2
+# import requests
+# from io import BytesIO
+# import matplotlib.pyplot as plt
+# import keras
 from resizeimage import resizeimage
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten
-from keras.utils import to_categorical
+# from keras.utils import to_categorical
 from keras.utils import np_utils
 from keras.models import load_model
 import PIL.ImageOps    
@@ -27,9 +27,9 @@ test_labels = train_labels[:30000]
 num_classes = len(np.unique(train_labels))
 train_images = train_images.astype('float32')
 test_images = test_images.astype('float32')
-cv2.imwrite('prefx_training.png', train_images[0,:,:])
+# cv2.imwrite('prefx_training.png', train_images[0,:,:])
 train_images /= 255
-cv2.imwrite('postfx_training.png', train_images[0,:,:])
+# cv2.imwrite('postfx_training.png', train_images[0,:,:])
 test_images /= 255
 rows, cols = train_images.shape[1:]
 train_data = train_images.reshape(train_images.shape[0], 1, rows, cols)
