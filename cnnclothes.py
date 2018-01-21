@@ -62,14 +62,14 @@ def createModel():
     
     return model
 
-model1 = createModel()
-batch_size = 256
-epochs = 50
-model1.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
-model1.summary()
-history = model1.fit(train_data, train_labels_one_hot, batch_size=batch_size, epochs=epochs, verbose=1, 
-                    validation_data=(test_data, test_labels_one_hot))
-model1.save('30000samp.h5')
+# model1 = createModel()
+# batch_size = 256
+# epochs = 50
+# model1.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+# model1.summary()
+# history = model1.fit(train_data, train_labels_one_hot, batch_size=batch_size, epochs=epochs, verbose=1,
+#                     validation_data=(test_data, test_labels_one_hot))
+# model1.save('30000samp.h5')
 
 
 def predict(img):
