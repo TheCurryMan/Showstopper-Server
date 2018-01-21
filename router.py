@@ -24,6 +24,6 @@ def geo():
     return json.dumps(geosnapshot.get_map(user))
 
 @app.route('/outfits', methods = ['GET'])
-def geo():
+def outfits():
     ids = request.args.get('id')
     return json.dumps(geosnapshot.nearby_outfits(ids))
