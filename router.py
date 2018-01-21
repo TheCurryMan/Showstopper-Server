@@ -17,7 +17,7 @@ def hello():
 
 @app.route('/findhottest')
 def hottest():
-    return json.dumps(findhottest.find_pic(findhottest.get()))
+    return json.dumps(findhottest.get())
 
 @app.route('/geo', methods = ['GET'])
 def geo():

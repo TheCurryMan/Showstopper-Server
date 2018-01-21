@@ -29,14 +29,8 @@ def get():
     hot_top = get_most_common(top)
     hot_bot = get_most_common(bot)
     hot_sho = get_most_common(sho)
-    return [hot_top, hot_bot, hot_sho]
+    hot_list = [hot_top, hot_bot, hot_sho]
 
-def get_most_common(color_list):
-    order = Counter(color_list)
-    x = (list(order.keys())[0])
-    return x
-
-def find_pic(hot_list):
     split = []
     ids = dict()
     urls = dict()
@@ -70,5 +64,10 @@ def find_pic(hot_list):
 
     return fin
 
+def get_most_common(color_list):
+    order = Counter(color_list)
+    x = (list(order.keys())[0])
+    return x
 
-# print(find_pic(get()))
+
+print(get())
