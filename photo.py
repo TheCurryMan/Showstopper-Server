@@ -5,11 +5,12 @@ import pyrebase
 from PIL import Image
 import requests
 from io import BytesIO
+from google.cloud import vision
 
 
 #init firebase
 
-items = ["top", "bot", "top", "top", "top", "sho", "top", "sho", "bot", "sho"] 
+items = ["top", "bot", "top", "bot", "top", "sho", "top", "sho", "bot", "sho"]
 classes = ["t-shirt", "trouser", "pullover", "dress", "coat", "sandal", "shirt", "sneaker", "pants", "high-top"]
 
 def outputs(userId, itemId):	
