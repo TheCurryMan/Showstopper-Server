@@ -36,7 +36,7 @@ def outputs(userId, itemId):
 	cat = items[predict(img)]
 
 	#retrieve color
-	color = clothes_color("C:\Users\MLH Admin\Documents\CruzHacks\Showstopper-Server/test.jpeg")
+	color = clothes_color(url)
 
 	#retrieve class
 	tag = classes[predict(img1)]

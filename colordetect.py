@@ -30,24 +30,24 @@ def closest_colour(requested_colour):
         min_colours[(rd + gd + bd)] = name
     return min_colours[min(min_colours.keys())]
 
-
-def find_color(path):
-    """Detects image properties in the file."""
+def find_color(uri):
+    """Detects image properties in the file located in Google Cloud Storage or
+    on the Web."""
     client = vision.ImageAnnotatorClient()
-
-    with io.open(path, 'rb') as image_file:
-        content = image_file.read()
-
-    image = types.Image(content=content)
+    image = types.Image()
+    image.source.image_uri = uri
 
     response = client.image_properties(image=image)
     props = response.image_properties_annotation
+    
     r = int(props.dominant_colors.colors[0].color.red)
     g = int(props.dominant_colors.colors[0].color.green)
     b = int(props.dominant_colors.colors[0].color.blue)
 
     r = [r, g, b]
     return r
+
+
 
 def get_colour_name(requested_colour):
     try:
