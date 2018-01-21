@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import request
 from firebase import firebase
-from bs4 import beautifulsoup
-import urllib.request
 import json
 import findhottest
 import geosnapshot
