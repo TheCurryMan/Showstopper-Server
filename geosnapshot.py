@@ -12,6 +12,8 @@ def get_map(id):
     mylng = '/users/' + id + '/long'
     mycoords = [firebase.get(mylat, None), firebase.get(mylng, None)]
     coords = dict()
+    print('ID ' + '')
+    print(result.keys())
     for user in result.keys():
         if user != id:
             # print(user)
@@ -24,7 +26,7 @@ def get_map(id):
         a = (coords[person][0], coords[person][1])
         b = (mycoords[0], mycoords[1])
         x = vincenty(a, b).meters
-        if x < 10:
+        if x < 30:
             map_coords[person] = a
         else:
             print("Not close enough")
