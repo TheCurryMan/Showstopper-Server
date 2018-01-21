@@ -23,7 +23,7 @@ def get_map(id):
         b = (mycoords[0], mycoords[1])
         x = vincenty(a, b).meters
         if x < 10:
-            map_coords[person] = [a,b]
+            map_coords[person] = a
     return map_coords
 
 def nearby_outfits(id):
