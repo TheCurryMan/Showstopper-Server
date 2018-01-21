@@ -14,7 +14,7 @@ classes = ["t-shirt", "trouser", "pullover", "dress", "coat", "sandal", "shirt",
 
 def outputs(userId, itemId):	
 
-	description = 'very moist'
+	description = 'description'
 
 	config = {
 	    "apiKey": "AIzaSyC99vx1nebCVnwmF4AhC1iAtBrKo-JpRSM",
@@ -45,8 +45,8 @@ def outputs(userId, itemId):
 
 	subcloset = db.child("users").child(userId).child("closet").child(cat).get()
 	newar = []
-	if subcloset is None:
-		print('mike hunt')
+	if subcloset.val() is None:
+		print('asdf')
 		newar = [itemId]
 	else:
 		newar = subcloset.val()

@@ -30,17 +30,22 @@ def get_map(id):
 
 def nearby_outfits(id):
     peeps = get_map(id)
-    today = str(date.today())
+    today = str(date.today().year) + "-" + str(date.today().month) + "-" + str(date.today().day)
     clothing = {'top': [], 'bot': [], 'sho': []}
+    # print(peeps.keys())
     for user in peeps.keys():
-        link = '/users/' + user + '/outfits/' + today + '/'
+        link = '/users/' + user + '/outfits/' + today
+        # print(link)
+        # link2 = "/users/46Hv3U0JRiZPVfaDPxHlyF4PX5g1/outfits/2018-1-21"
+        # print(link2)
         today_outfit = firebase.get(link, None)
+        # print(today_outfit)
         clothing['top'].append(today_outfit['topID'])
         clothing['bot'].append(today_outfit['botID'])
         clothing['sho'].append(today_outfit['shoID'])
     print('Uploading...')
 
-    url = '/mUsers/' + id + '/searches'
+    url = '/users/' + id + '/searches'
     cur_top = (firebase.get(url + '/top', None))
     # print(type(cur_top))
     if cur_top is None:
